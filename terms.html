@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use – Lucera Collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #131316; --text: #ece6df; --muted: #a39b91; --gold: #e0954a; --border: rgba(224,149,74,.25); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.8; }
+    a { color: var(--gold); text-decoration: none; }
+    header { border-bottom: 1px solid var(--border); }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: .08em; }
+    .back { color: var(--muted); font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; }
+    .back:hover { color: var(--gold); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    main { padding: 80px 0; }
+    .eyebrow { color: var(--gold); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; margin-bottom: 14px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.4rem, 6vw, 3.2rem); line-height: 1.15; }
+    .updated { color: var(--muted); font-size: .9rem; margin: 12px 0 48px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; margin: 40px 0 10px; }
+    p { color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: .85rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a href="index.html" class="logo">LUCERA</a><a href="index.html" class="back">← Back to site</a></div></header>
+  <main class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated: November 2026</p>
+
+    <h2>About these terms</h2>
+    <p>By using the Lucera Collective website you agree to these terms. If you do not agree, please do not use the site.</p>
+
+    <h2>Content and copyright</h2>
+    <p>All content on this website, including text, images, logos, music, and video, belongs to Lucera Collective or our collaborators unless otherwise stated. You may not copy, reproduce, or use it commercially without our written permission.</p>
+
+    <h2>Information on the site</h2>
+    <p>The information on this website is for general purposes only. We try to keep it accurate and up to date, but we cannot guarantee that it always is. Descriptions of our services do not form a binding offer.</p>
+
+    <h2>Projects and agreements</h2>
+    <p>Any work we do for you is covered by a separate agreement or quote. The terms in that agreement apply to the project, not these website terms.</p>
+
+    <h2>External links</h2>
+    <p>The website may link to other sites, such as Instagram. We are not responsible for the content or privacy practices of those sites.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>We are not liable for any loss or damage that results from using this website or relying on its content, to the extent permitted by law.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms at any time. The date at the top shows when they were last changed.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms? Email us at <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>.</p>
+  </main>
+  <footer>© <span id="year"></span> Lucera Collective. All rights reserved.</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Use | Lucera Collective</title>
+  <title>Villkor | Lucera Collective</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -22,7 +22,9 @@
     h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.4rem, 6vw, 3.2rem); line-height: 1.15; }
     .updated { color: var(--muted); font-size: .9rem; margin: 12px 0 48px; }
     h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; margin: 40px 0 10px; }
-    p { color: var(--muted); }
+    p, li { color: var(--muted); }
+    ul { padding-left: 20px; margin-top: 8px; }
+    li + li { margin-top: 6px; }
     footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: .85rem; text-align: center; }
 
     /* ===== Side menu ===== */
@@ -55,61 +57,77 @@
 </head>
 <body>
   <div class="topbar" id="nav">
-    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Öppna menyn" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     <a href="index.html" class="brand">LUCERA</a>
   </div>
   <div class="menu-overlay"></div>
-  <aside class="drawer" id="drawer" aria-label="Menu">
-    <p class="drawer-label">Menu</p>
+  <aside class="drawer" id="drawer" aria-label="Meny">
+    <p class="drawer-label">Meny</p>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="artists.html">Artists</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="index.html#about">Om oss</a></li>
+      <li><a href="index.html#services">Tjänster</a></li>
+      <li><a href="artists.html">Artister</a></li>
+      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+      <li><a href="konto.html">Mitt konto</a></li>
     </ul>
     <div class="drawer-foot">
       <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>
       <a href="https://www.instagram.com/luceracollective" target="_blank" rel="noopener">Instagram</a>
-      <div class="drawer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+      <div class="drawer-legal"><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></div>
     </div>
   </aside>
   <main class="wrap">
-    <p class="eyebrow">Legal</p>
-    <h1>Terms of Use</h1>
-    <p class="updated">Last updated: November 2026</p>
+    <p class="eyebrow">Juridik</p>
+    <h1>Villkor</h1>
+    <p class="updated">Senast uppdaterad: november 2026</p>
 
-    <h2>About these terms</h2>
-    <p>By using the Lucera Collective website you agree to these terms. If you do not agree, please do not use the site.</p>
+    <h2>Om villkoren</h2>
+    <p>De här villkoren gäller när du använder Lucera Collectives webbplats och när du köper våra digitala produkter och medlemskap. Genom att använda webbplatsen eller göra ett köp godkänner du villkoren.</p>
 
-    <h2>Content and copyright</h2>
-    <p>All content on this website, including text, images, logos, music, and video, belongs to Lucera Collective or our collaborators unless otherwise stated. You may not copy, reproduce, or use it commercially without our written permission.</p>
+    <h2>Innehåll och upphovsrätt</h2>
+    <p>Allt innehåll på webbplatsen och i våra produkter – text, bilder, logotyper, musik, video och Indie Artist Blueprint – tillhör Lucera Collective eller våra samarbetspartners, om inget annat anges. Du får inte kopiera, sprida eller använda det kommersiellt utan vårt skriftliga tillstånd. Blueprint är för ditt personliga bruk och får inte delas vidare.</p>
 
-    <h2>Information on the site</h2>
-    <p>The information on this website is for general purposes only. We try to keep it accurate and up to date, but we cannot guarantee that it always is. Descriptions of our services do not form a binding offer.</p>
+    <h2>Priser och betalning</h2>
+    <p>Alla priser anges i svenska kronor inklusive moms. Betalningen sköts av vår betalpartner Stripe. Ditt konto skapas när du gör din första beställning.</p>
 
-    <h2>Projects and agreements</h2>
-    <p>Any work we do for you is covered by a separate agreement or quote. The terms in that agreement apply to the project, not these website terms.</p>
+    <h2>Blueprint (engångsköp)</h2>
+    <p>Blueprint är digitalt innehåll som du får tillgång till direkt efter köpet. Enligt distansavtalslagen har du normalt 14 dagars ångerrätt, men den gäller inte digitalt innehåll som levereras direkt om du har godkänt att leveransen börjar och att ångerrätten därmed upphör. Det godkännandet ger du i samband med köpet.</p>
 
-    <h2>External links</h2>
-    <p>The website may link to other sites, such as Instagram. We are not responsible for the content or privacy practices of those sites.</p>
+    <h2>Medlemskap (Community och Partner)</h2>
+    <ul>
+      <li>Medlemskapen betalas i förskott månadsvis och förnyas automatiskt varje månad.</li>
+      <li>Du kan avsluta när som helst under Mitt konto. Medlemskapet gäller då perioden ut och du debiteras inte igen.</li>
+      <li>Du har 14 dagars ångerrätt från köpet. Om du har bett oss att börja leverera tjänsten under ångerfristen kan du behöva betala för den del som redan levererats.</li>
+      <li>Vi meddelar dig i god tid via e-post innan vi ändrar priset på ett pågående medlemskap. Grundarpriset gäller så länge du är medlem utan uppehåll.</li>
+    </ul>
 
-    <h2>Limitation of liability</h2>
-    <p>We are not liable for any loss or damage that results from using this website or relying on its content, to the extent permitted by law.</p>
+    <h2>Information på webbplatsen</h2>
+    <p>Informationen på webbplatsen och i Blueprint är allmän och inte juridisk, ekonomisk eller skattemässig rådgivning. Vi strävar efter att den ska vara korrekt och aktuell men kan inte garantera det, och vi kan inte lova några särskilda resultat för din musik.</p>
 
-    <h2>Changes</h2>
-    <p>We may update these terms at any time. The date at the top shows when they were last changed.</p>
+    <h2>Projekt och avtal</h2>
+    <p>Arbete vi gör åt dig utöver paketen, till exempel produktion eller kampanjer, regleras i ett separat avtal eller en offert. Det avtalet gäller då för projektet.</p>
 
-    <h2>Contact</h2>
-    <p>Questions about these terms? Email us at <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>.</p>
+    <h2>Externa länkar</h2>
+    <p>Webbplatsen kan länka till andra sidor, till exempel Instagram och Spotify. Vi ansvarar inte för deras innehåll eller hantering av personuppgifter.</p>
+
+    <h2>Ansvarsbegränsning</h2>
+    <p>Vi ansvarar inte för förlust eller skada som uppstår av att du använder webbplatsen eller förlitar dig på dess innehåll, i den utsträckning lagen tillåter. Dina rättigheter enligt konsumentlagstiftningen påverkas inte.</p>
+
+    <h2>Ändringar</h2>
+    <p>Vi kan uppdatera villkoren. Datumet högst upp visar när de senast ändrades. Ändringar gäller inte retroaktivt för köp du redan har gjort.</p>
+
+    <h2>Kontakt</h2>
+    <p>Frågor om villkoren? Mejla oss på <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>.</p>
   </main>
-  <footer>© <span id="year"></span> Lucera Collective. All rights reserved.</footer>
+  <footer>© <span id="year"></span> Lucera Collective. Alla rättigheter förbehållna.</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <script>
     (function () {
       const body = document.body, btn = document.querySelector('.burger');
-      const setOpen = (open) => { body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+      const setOpen = (open) => { body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Stäng menyn' : 'Öppna menyn'); };
       btn.addEventListener('click', () => setOpen(!body.classList.contains('menu-open')));
       document.querySelector('.menu-overlay').addEventListener('click', () => setOpen(false));
       document.querySelectorAll('.drawer a').forEach(a => a.addEventListener('click', () => setOpen(false)));

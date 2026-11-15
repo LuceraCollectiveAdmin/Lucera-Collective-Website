@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indie Artist Blueprint | Lucera Collective</title>
+  <meta name="description" content="Indie Artist Blueprint: ett steg-för-steg-system för att tjäna pengar på din musik genom streams, merch, spelningar och fans du äger själv. Plus medlemskapen Community och Partner.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0d0c;
+      --text: #ece6df;
+      --muted: #a39b91;
+      --gold: #e0954a;
+      --gold-light: #f0b25e;
+      --gold-dark: #c8692e;
+      --border: rgba(224, 149, 74, 0.25);
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 100px 0; scroll-margin-top: 70px; }
+    .eyebrow { color: var(--gold); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; margin-bottom: 14px; }
+    .gold { color: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15; margin-bottom: 20px; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 680px; }
+    .section-head { text-align: center; margin: 0 auto 56px; }
+    .section-head .lead { margin: 0 auto; }
+    .divider { width: 96px; height: 1px; background: var(--gold); margin: 28px auto; }
+
+    .btn { display: inline-block; padding: 15px 32px; border-radius: 3px; font-size: .85rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; text-align: center; transition: transform .25s, box-shadow .25s, background .25s; }
+    .btn-primary { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); color: #1a120a; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(224,149,74,.3); }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: rgba(224,149,74,.1); }
+
+    /* Header */
+    .page-head { padding: 170px 0 90px; text-align: center; background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, var(--bg) 60%); }
+    .page-head h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.8rem, 8vw, 4.8rem); line-height: 1.05; }
+    .page-head p.intro { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto; }
+    .actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+
+    /* Reality */
+    .reality { background: #131316; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .stat { background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 8px; padding: 32px; text-align: center; }
+    .stat .val { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 3rem; line-height: 1.1; }
+    .stat .label { color: var(--muted); margin-top: 10px; }
+    .note { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 28px; }
+    .punch { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); text-align: center; margin-top: 56px; line-height: 1.3; }
+
+    /* Inside */
+    .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .phase { background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 8px; padding: 32px; transition: border-color .3s, transform .3s; }
+    .phase:hover { border-color: rgba(224,149,74,.5); transform: translateY(-4px); }
+    .phase .num { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 2.4rem; line-height: 1; margin-bottom: 14px; }
+    .phase h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; margin-bottom: 10px; }
+    .phase p { color: var(--muted); }
+    .phase.bonus { background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, #1b1c1f 70%); border-color: rgba(224,149,74,.4); }
+
+    /* Packages */
+    .packages { background: radial-gradient(ellipse at 50% 30%, #2a2018 0%, #131316 60%); }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: stretch; }
+    .plan { position: relative; display: flex; flex-direction: column; background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 10px; padding: 36px 32px; }
+    .plan.featured { border-color: var(--gold); box-shadow: 0 20px 60px rgba(224,149,74,.12); }
+    .tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); color: #1a120a; font-size: .7rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+    .plan h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 2rem; }
+    .plan .for { color: var(--muted); font-size: .95rem; margin-bottom: 22px; }
+    .price { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 2.8rem; line-height: 1; }
+    .price small { font-family: 'Inter', sans-serif; font-size: .85rem; color: var(--muted); letter-spacing: .05em; }
+    .plan ul { list-style: none; margin: 26px 0 32px; flex: 1; }
+    .plan li { position: relative; padding-left: 18px; font-size: .95rem; color: #c9c2ba; font-weight: 400; }
+    .plan li + li { margin-top: 10px; }
+    .plan li::before { content: ''; position: absolute; left: 0; top: .65em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .plan .btn { width: 100%; }
+    .founder { margin-top: 48px; text-align: center; border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; background: rgba(224,149,74,.06); }
+    .founder strong { font-weight: 500; color: var(--gold); }
+    .vat { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 18px; }
+
+    /* FAQ */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--border); padding: 22px 0; }
+    .faq summary { cursor: pointer; list-style: none; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--gold); font-family: 'Inter', sans-serif; font-size: 1.3rem; transition: transform .25s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { color: var(--muted); margin-top: 10px; }
+
+    /* CTA */
+    .cta { text-align: center; padding-top: 0; }
+    .cta-box { background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, #1b1c1f 65%); border: 1px solid rgba(224,149,74,.18); border-radius: 14px; padding: 64px 40px; }
+    .cta-box .lead { margin: 0 auto 36px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); background: #131316; padding: 36px 0; color: var(--muted); font-size: .9rem; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: none; }
+    .logo { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.6rem; letter-spacing: .08em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .stats, .phases, .plans { grid-template-columns: 1fr; }
+      .plans { gap: 40px; }
+      .page-head { padding: 130px 0 60px; }
+      section { padding: 80px 0; }
+      .cta-box { padding: 44px 22px; }
+      footer .container { flex-direction: column; text-align: center; }
+    }
+
+    /* ===== Side menu ===== */
+    .topbar { position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 40; display: flex; align-items: center; padding: 0 20px; background: rgba(14,13,12,.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(224,149,74,.25); transition: background .3s, border-color .3s; }
+    .topbar.over-hero { background: transparent; backdrop-filter: none; border-color: transparent; }
+    .topbar.over-hero.scrolled { background: rgba(14,13,12,.92); backdrop-filter: blur(10px); border-color: rgba(224,149,74,.25); }
+    .topbar .brand { position: absolute; left: 50%; transform: translateX(-50%); font-family: 'Cormorant Garamond', serif; color: #e0954a; font-size: 1.6rem; letter-spacing: .08em; text-decoration: none; }
+    .burger { position: relative; z-index: 60; width: 44px; height: 44px; margin-left: -8px; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+    .burger span { display: block; width: 26px; height: 1.5px; background: #e0954a; transition: transform .35s, opacity .25s; }
+    body.menu-open .burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    body.menu-open .burger span:nth-child(2) { opacity: 0; }
+    body.menu-open .burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    .menu-overlay { position: fixed; inset: 0; z-index: 45; background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity .35s; }
+    body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
+    .drawer { position: fixed; top: 0; left: 0; bottom: 0; z-index: 50; width: min(340px, 85vw); background: #131316; border-right: 1px solid rgba(224,149,74,.25); padding: 100px 36px 36px; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform .4s cubic-bezier(.2,.8,.2,1); overflow-y: auto; }
+    body.menu-open .drawer { transform: translateX(0); }
+    body.menu-open { overflow: hidden; }
+    body.menu-open .topbar { z-index: 55; background: transparent; backdrop-filter: none; border-color: transparent; }
+    body.menu-open .topbar .brand { opacity: 0; }
+    .drawer-label { color: #e0954a; letter-spacing: .3em; text-transform: uppercase; font-size: .75rem; margin-bottom: 18px; }
+    .drawer ul { list-style: none; }
+    .drawer li a { display: block; padding: 10px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: #ece6df; text-decoration: none; transition: color .2s, padding-left .25s; }
+    .drawer li a:hover, .drawer li a.active { color: #e0954a; padding-left: 8px; }
+    .drawer-foot { margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(224,149,74,.2); display: flex; flex-direction: column; gap: 10px; font-size: .9rem; }
+    .drawer-foot a { color: #a39b91; text-decoration: none; }
+    .drawer-foot a:hover { color: #e0954a; }
+    .drawer-legal { display: flex; gap: 18px; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; margin-top: 8px; }
+  </style>
+  <script src="config.js" defer></script>
+</head>
+<body>
+
+  <div class="topbar" id="nav">
+    <button class="burger" aria-label="Öppna menyn" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    <a href="index.html" class="brand">LUCERA</a>
+  </div>
+  <div class="menu-overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Meny">
+    <p class="drawer-label">Meny</p>
+    <ul>
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="index.html#about">Om oss</a></li>
+      <li><a href="index.html#services">Tjänster</a></li>
+      <li><a href="artists.html">Artister</a></li>
+      <li><a href="blueprint.html" class="active">Blueprint</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+      <li><a href="konto.html">Mitt konto</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>
+      <a href="https://www.instagram.com/luceracollective" target="_blank" rel="noopener">Instagram</a>
+      <div class="drawer-legal"><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></div>
+    </div>
+  </aside>
+
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">För oberoende artister</p>
+      <h1>Indie Artist <span class="gold">Blueprint</span></h1>
+      <div class="divider"></div>
+      <p class="intro">Steg-för-steg-systemet för att tjäna pengar på din musik: streams, merch, spelningar och fans du äger själv. Inget skivbolag behövs.</p>
+      <div class="actions">
+        <a href="#packages" class="btn btn-primary">Se paketen</a>
+        <a href="#inside" class="btn btn-outline">Vad ingår?</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="reality">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Verkligheten</p>
+        <h2>Streams betalar <span class="gold">inte hyran</span></h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="val">3–5 öre</div><p class="label">i snitt per stream på Spotify</p></div>
+        <div class="stat"><div class="val">≈ 250</div><p class="label">streams för att tjäna en enda dollar</p></div>
+        <div class="stat"><div class="val">1 000</div><p class="label">streams på 12 månader krävs – under det ger låten ingen inspelningsroyalty</p></div>
+      </div>
+      <p class="note">Källor: TuneCore och LabelGrid (2026); Spotifys royaltyregler sedan april 2024. Faktisk ersättning varierar med land, abonnemang och avtal.</p>
+      <p class="punch">Streams är skyltfönstret – inte kassan.<br><span class="gold">Pengarna kommer när lyssnare blir fans.</span></p>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Vad ingår</p>
+        <h2>Fem faser. <span class="gold">Ett system.</span></h2>
+        <p class="lead">En guide på 20 sidor som tar dig från att säkra dina rättigheter till att sälja merch och bygga en publik – i rätt ordning.</p>
+      </div>
+      <div class="phases">
+        <div class="phase"><div class="num">01</div><h3>Grunden</h3><p>Få betalt för varje lyssning: STIM, SAMI, distribution och artistprofiler. Plus meningen som definierar ditt varumärke.</p></div>
+        <div class="phase"><div class="num">02</div><h3>Releasesystemet</h3><p>En sexveckorsplan för varje singel, när du ska pitcha och strategin som håller algoritmen på din sida.</p></div>
+        <div class="phase"><div class="num">03</div><h3>Content-motorn</h3><p>Vad varje plattform är till för, formeln för tre sorters inlägg och en hel veckas content på fem timmar.</p></div>
+        <div class="phase"><div class="num">04</div><h3>Äg dina fans</h3><p>Gör lyssnare till en e-postlista som ingen algoritmändring kan ta ifrån dig.</p></div>
+        <div class="phase"><div class="num">05</div><h3>Merch, live &amp; tillväxt</h3><p>Merch-trappan, hur varje spelning ska löna sig och annonser bara på det som redan fungerar.</p></div>
+        <div class="phase bonus"><div class="num">+</div><h3>Bonusen</h3><p>En 90-dagarsplan, de fem siffrorna att följa, fällorna att undvika och företagsgrunderna.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="packages">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Paket</p>
+        <h2>Börja där <span class="gold">du är</span></h2>
+        <p class="lead">Gör jobbet själv med guiden, eller väx tillsammans med andra artister med stöd från oss.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Blueprint</h3>
+          <p class="for">För dig som vill ha hela systemet och göra jobbet själv.</p>
+          <div class="price">199 kr <small>engångsköp</small></div>
+          <ul>
+            <li>Hela Indie Artist Blueprint</li>
+            <li>Alla fem faser plus 90-dagarsplanen</li>
+            <li>PDF att ladda ner och behålla</li>
+          </ul>
+          <a class="btn btn-outline" data-plan="blueprint" href="mailto:zebastian@luceracollective.com?subject=Best%C3%A4llning%3A%20Blueprint">Köp Blueprint</a>
+        </div>
+        <div class="plan featured">
+          <span class="tag">Bästa starten</span>
+          <h3>Community</h3>
+          <p class="for">För dig som vill ha feedback, struktur och andra artister på samma resa.</p>
+          <div class="price">599 kr <small>/ mån</small></div>
+          <ul>
+            <li>Gruppsamtal varje vecka med Lucera Collective</li>
+            <li>Feedback på ditt content och dina releaser i gruppchatten</li>
+            <li>Mallar för releaseplaner, inlägg och mejl</li>
+            <li>Blueprint ingår</li>
+          </ul>
+          <a class="btn btn-primary" data-plan="community" href="mailto:zebastian@luceracollective.com?subject=Best%C3%A4llning%3A%20Community">Gå med i Community</a>
+        </div>
+        <div class="plan">
+          <h3>Partner</h3>
+          <p class="for">För dig som vill ha personlig vägledning inför nästa release.</p>
+          <div class="price">1 495 kr <small>/ mån</small></div>
+          <ul>
+            <li>Allt i Community</li>
+            <li>Ett 1:1-möte i månaden</li>
+            <li>Konkret hjälp att planera din release</li>
+          </ul>
+          <a class="btn btn-outline" data-plan="partner" href="mailto:zebastian@luceracollective.com?subject=Best%C3%A4llning%3A%20Partner">Bli Partner</a>
+        </div>
+      </div>
+      <div class="founder">
+        <p><strong>Grundarerbjudande:</strong> de första 20 medlemmarna får Community för <strong>399 kr / mån</strong> – för alltid.</p>
+        <a class="btn btn-primary" style="margin-top:18px" data-plan="communityFounder" href="mailto:zebastian@luceracollective.com?subject=Best%C3%A4llning%3A%20Community%20grundarpris">Ta en grundarplats</a>
+      </div>
+      <p class="vat">Alla priser inklusive moms. När du beställer skapas ditt konto automatiskt – du hanterar det under <a href="konto.html" class="gold">Mitt konto</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Frågor</p>
+        <h2>Bra att <span class="gold">veta</span></h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Vem är Blueprint till för?</summary>
+          <p>Oberoende artister som släpper sin egen musik och vill kunna leva på den – oavsett om du precis har börjat eller redan har några releaser ute.</p>
+        </details>
+        <details>
+          <summary>Behöver jag många följare?</summary>
+          <p>Nej. Blueprint hjälper dig att bygga en liten publik som verkligen bryr sig. Det är värt mer än att gå viralt en gång.</p>
+        </details>
+        <details>
+          <summary>Hur fungerar mitt konto?</summary>
+          <p>Kontot skapas när du beställer. Under Mitt konto loggar du in med din e-postadress och kan se din prenumeration, byta kort, ladda ner kvitton och avsluta.</p>
+        </details>
+        <details>
+          <summary>Hur fungerar medlemskapen?</summary>
+          <p>Community och Partner betalas månadsvis. Du kan avsluta när du vill, och medlemskapet gäller då perioden ut. Läs mer i våra <a href="terms.html" class="gold">villkor</a>.</p>
+        </details>
+        <details>
+          <summary>Hur får jag guiden?</summary>
+          <p>Efter köpet får du en länk för att ladda ner Blueprint som PDF. Är du medlem i Community eller Partner ingår den.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <p class="eyebrow">Din musik. Dina rättigheter. Din tillväxt.</p>
+        <h2>Redo att få din musik att <span class="gold">löna sig</span>?</h2>
+        <div class="divider"></div>
+        <p class="lead">Börja med Blueprint, eller gå med i Community och bygg din karriär tillsammans med andra oberoende artister.</p>
+        <a href="#packages" class="btn btn-primary">Välj ditt paket</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="index.html" class="logo" style="font-size:1.3rem">LUCERA</a>
+      <span>© <span id="year"></span> Lucera Collective. Alla rättigheter förbehållna.</span>
+      <div class="footer-links"><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    (function () {
+      const body = document.body, btn = document.querySelector('.burger');
+      const setOpen = (open) => { body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Stäng menyn' : 'Öppna menyn'); };
+      btn.addEventListener('click', () => setOpen(!body.classList.contains('menu-open')));
+      document.querySelector('.menu-overlay').addEventListener('click', () => setOpen(false));
+      document.querySelectorAll('.drawer a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+      const bar = document.getElementById('nav');
+      const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onScroll); onScroll();
+    })();
+  </script>
+</body>
+</html>

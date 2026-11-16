@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produktion &amp; bild | Lucera Collective</title>
+  <meta name="description" content="Mixning, mastring och produktion – plus omslag, Spotify Canvas och grafik för din release. Paket med fasta priser från Lucera Collective.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0d0c;
+      --text: #ece6df;
+      --muted: #a39b91;
+      --gold: #e0954a;
+      --gold-light: #f0b25e;
+      --gold-dark: #c8692e;
+      --border: rgba(224, 149, 74, 0.25);
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 100px 0; scroll-margin-top: 70px; }
+    .eyebrow { color: var(--gold); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; margin-bottom: 14px; }
+    .gold { color: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15; margin-bottom: 20px; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 680px; }
+    .section-head { text-align: center; margin: 0 auto 56px; }
+    .section-head .lead { margin: 0 auto; }
+    .divider { width: 96px; height: 1px; background: var(--gold); margin: 28px auto; }
+
+    .btn { display: inline-block; padding: 15px 32px; border-radius: 3px; font-size: .85rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; text-align: center; transition: transform .25s, box-shadow .25s, background .25s; }
+    .btn-primary { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); color: #1a120a; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(224,149,74,.3); }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: rgba(224,149,74,.1); }
+
+    /* Header */
+    .page-head { padding: 170px 0 90px; text-align: center; background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, var(--bg) 60%); }
+    .page-head h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.8rem, 8vw, 4.8rem); line-height: 1.05; }
+    .page-head p.intro { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto; }
+    .actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+
+    /* Reality */
+    .reality { background: #131316; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .stat { background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 8px; padding: 32px; text-align: center; }
+    .stat .val { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 3rem; line-height: 1.1; }
+    .stat .label { color: var(--muted); margin-top: 10px; }
+    .note { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 28px; }
+    .punch { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); text-align: center; margin-top: 56px; line-height: 1.3; }
+
+    /* Inside */
+    .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .phase { background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 8px; padding: 32px; transition: border-color .3s, transform .3s; }
+    .phase:hover { border-color: rgba(224,149,74,.5); transform: translateY(-4px); }
+    .phase .num { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 2.4rem; line-height: 1; margin-bottom: 14px; }
+    .phase h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; margin-bottom: 10px; }
+    .phase p { color: var(--muted); }
+    .phase.bonus { background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, #1b1c1f 70%); border-color: rgba(224,149,74,.4); }
+
+    /* Packages */
+    .packages { background: radial-gradient(ellipse at 50% 30%, #2a2018 0%, #131316 60%); }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: stretch; }
+    .plan { position: relative; display: flex; flex-direction: column; background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 10px; padding: 36px 32px; }
+    .plan.featured { border-color: var(--gold); box-shadow: 0 20px 60px rgba(224,149,74,.12); }
+    .tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); color: #1a120a; font-size: .7rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+    .plan h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 2rem; }
+    .plan .for { color: var(--muted); font-size: .95rem; margin-bottom: 22px; }
+    .price { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 2.8rem; line-height: 1; }
+    .price small { font-family: 'Inter', sans-serif; font-size: .85rem; color: var(--muted); letter-spacing: .05em; }
+    .plan ul { list-style: none; margin: 26px 0 32px; flex: 1; }
+    .plan li { position: relative; padding-left: 18px; font-size: .95rem; color: #c9c2ba; font-weight: 400; }
+    .plan li + li { margin-top: 10px; }
+    .plan li::before { content: ''; position: absolute; left: 0; top: .65em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .plan .btn { width: 100%; }
+    .founder { margin-top: 48px; text-align: center; border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; background: rgba(224,149,74,.06); }
+    .founder strong { font-weight: 500; color: var(--gold); }
+    .vat { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 18px; }
+
+    /* FAQ */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--border); padding: 22px 0; }
+    .faq summary { cursor: pointer; list-style: none; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--gold); font-family: 'Inter', sans-serif; font-size: 1.3rem; transition: transform .25s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { color: var(--muted); margin-top: 10px; }
+
+    /* CTA */
+    .cta { text-align: center; padding-top: 0; }
+    .cta-box { background: radial-gradient(ellipse at 50% 0%, #2a2018 0%, #1b1c1f 65%); border: 1px solid rgba(224,149,74,.18); border-radius: 14px; padding: 64px 40px; }
+    .cta-box .lead { margin: 0 auto 36px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); background: #131316; padding: 36px 0; color: var(--muted); font-size: .9rem; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: none; }
+    .logo { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.6rem; letter-spacing: .08em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .stats, .phases, .plans { grid-template-columns: 1fr; }
+      .plans { gap: 40px; }
+      .page-head { padding: 130px 0 60px; }
+      section { padding: 80px 0; }
+      .cta-box { padding: 44px 22px; }
+      footer .container { flex-direction: column; text-align: center; }
+    }
+
+    /* ===== Side menu ===== */
+    .topbar { position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 40; display: flex; align-items: center; padding: 0 20px; background: rgba(14,13,12,.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(224,149,74,.25); transition: background .3s, border-color .3s; }
+    .topbar.over-hero { background: transparent; backdrop-filter: none; border-color: transparent; }
+    .topbar.over-hero.scrolled { background: rgba(14,13,12,.92); backdrop-filter: blur(10px); border-color: rgba(224,149,74,.25); }
+    .topbar .brand { position: absolute; left: 50%; transform: translateX(-50%); font-family: 'Cormorant Garamond', serif; color: #e0954a; font-size: 1.6rem; letter-spacing: .08em; text-decoration: none; }
+    .burger { position: relative; z-index: 60; width: 44px; height: 44px; margin-left: -8px; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+    .burger span { display: block; width: 26px; height: 1.5px; background: #e0954a; transition: transform .35s, opacity .25s; }
+    body.menu-open .burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    body.menu-open .burger span:nth-child(2) { opacity: 0; }
+    body.menu-open .burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    .menu-overlay { position: fixed; inset: 0; z-index: 45; background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity .35s; }
+    body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
+    .drawer { position: fixed; top: 0; left: 0; bottom: 0; z-index: 50; width: min(340px, 85vw); background: #131316; border-right: 1px solid rgba(224,149,74,.25); padding: 100px 36px 36px; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform .4s cubic-bezier(.2,.8,.2,1); overflow-y: auto; }
+    body.menu-open .drawer { transform: translateX(0); }
+    body.menu-open { overflow: hidden; }
+    body.menu-open .topbar { z-index: 55; background: transparent; backdrop-filter: none; border-color: transparent; }
+    body.menu-open .topbar .brand { opacity: 0; }
+    .drawer-label { color: #e0954a; letter-spacing: .3em; text-transform: uppercase; font-size: .75rem; margin-bottom: 18px; }
+    .drawer ul { list-style: none; }
+    .drawer li a { display: block; padding: 10px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: #ece6df; text-decoration: none; transition: color .2s, padding-left .25s; }
+    .drawer li a:hover, .drawer li a.active { color: #e0954a; padding-left: 8px; }
+    .drawer-foot { margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(224,149,74,.2); display: flex; flex-direction: column; gap: 10px; font-size: .9rem; }
+    .drawer-foot a { color: #a39b91; text-decoration: none; }
+    .drawer-foot a:hover { color: #e0954a; }
+    .drawer-legal { display: flex; gap: 18px; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; margin-top: 8px; }
+      .plans.four { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .plans.four .plan { padding: 32px 26px; }
+    .plans.four .price { font-size: 2.3rem; }
+    .tab-panel[hidden] { display: none; }
+    .tabs { position: relative; }
+    .plans.two { grid-template-columns: 1fr 1fr; max-width: 900px; margin: 0 auto; }
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; }
+    .pstep { border-top: 1px solid var(--gold); padding-top: 18px; }
+    .pstep .n { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.6rem; }
+    .pstep h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.35rem; margin: 4px 0 6px; }
+    .pstep p { color: var(--muted); font-size: .95rem; }
+    .ai-box { margin-top: 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: start; background: #1b1c1f; border: 1px solid rgba(224,149,74,.18); border-radius: 10px; padding: 36px; }
+    .ai-box h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.8rem; line-height: 1.2; }
+    .ai-box p { color: var(--muted); }
+    .ai-box p + p { margin-top: 12px; }
+    .combo { margin-top: 48px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; border: 1px solid var(--gold); border-radius: 10px; padding: 32px 36px; background: radial-gradient(ellipse at 0% 0%, #2a2018 0%, #1b1c1f 70%); }
+    .combo h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 2rem; }
+    .combo p { color: var(--muted); max-width: 620px; }
+    .combo .price { margin-bottom: 14px; }
+    @media (max-width: 1000px) { .plans.four { grid-template-columns: 1fr 1fr; } .process { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 900px) { .plans.two { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .plans.four, .process, .ai-box { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="topbar" id="nav">
+    <button class="burger" aria-label="Öppna menyn" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    <a href="index.html" class="brand">LUCERA</a>
+  </div>
+  <div class="menu-overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Meny">
+    <p class="drawer-label">Meny</p>
+    <ul>
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="index.html#about">Om oss</a></li>
+      <li><a href="index.html#services">Tjänster</a></li>
+      <li><a href="produktion.html" class="active">Produktion</a></li>
+      <li><a href="artists.html">Artister</a></li>
+      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+      <li><a href="konto.html">Mitt konto</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="mailto:zebastian@luceracollective.com">zebastian@luceracollective.com</a>
+      <a href="https://www.instagram.com/luceracollective" target="_blank" rel="noopener">Instagram</a>
+      <div class="drawer-legal"><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></div>
+    </div>
+  </aside>
+
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">Ljud &amp; bild</p>
+      <h1>Produktion <span class="gold">&amp; bild</span></h1>
+      <div class="divider"></div>
+      <p class="intro">Allt din release behöver för att låta och se ut som du vill – med fasta priser, så du vet vad det kostar innan vi börjar.</p>
+      <div class="actions tabs" role="tablist" aria-label="Tjänster">
+        <a href="#ljud" class="btn btn-primary tab-btn" role="tab" data-tab="ljud" aria-selected="true">Ljud</a>
+        <a href="#bild" class="btn btn-outline tab-btn" role="tab" data-tab="bild" aria-selected="false">Bild</a>
+        <a href="#klubbar" class="btn btn-outline tab-btn" role="tab" data-tab="klubbar" aria-selected="false">Prenumerationer</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="ljud" class="reality tab-panel" role="tabpanel">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Musikproduktion</p>
+        <h2>Från idé till <span class="gold">färdig master</span></h2>
+        <p class="lead">Välj det steg du behöver hjälp med. Priserna gäller per låt – större projekt får en offert.</p>
+      </div>
+      <div class="plans four">
+
+        <div class="plan featured"><span class="tag">Mest valt</span>
+          <h3>Mix &amp; master</h3>
+          <p class="for">Du har spelat in och vill att låten ska låta proffsigt.</p>
+          <div class="price">1 995 kr <small>/ låt</small></div>
+          <ul><li>Mixning av upp till 24 spår</li><li>Mastrad i mixen – redo för streaming</li><li>Tre revideringar</li><li>Leverans inom 10 arbetsdagar</li></ul>
+          <a class="btn btn-primary" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Mix%20och%20master">Boka mix</a>
+        </div>
+
+        <div class="plan">
+          <h3>Produktion</h3>
+          <p class="for">Du har en låt på gitarr eller piano och vill ha hela arrangemanget.</p>
+          <div class="price">5 995 kr <small>/ låt</small></div>
+          <ul><li>Arrangemang och produktion i din genre</li><li>Mix och master ingår</li><li>Uppstartssamtal och tre revideringar</li><li>Du äger din musik</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Produktion">Berätta om låten</a>
+        </div>
+
+        <div class="plan">
+          <h3>Sångredigering</h3>
+          <p class="for">Du vill att sånginspelningen ska sitta.</p>
+          <div class="price">395 kr <small>/ låt</small></div>
+          <ul><li>Ihopklippning av bästa tagningarna</li><li>Tajming och stämning, så naturligt som möjligt</li><li>Levereras som stems redo för mix</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20S%C3%A5ngredigering">Skicka din sång</a>
+        </div>
+        <div class="plan">
+          <h3>Större projekt</h3>
+          <p class="for">EP, album eller en låt som kräver mer än paketen.</p>
+          <div class="price">Offert</div>
+          <ul><li>EP och album – rabatt per låt</li><li>Fler än 24 spår, stråkar eller många sångstämmor</li><li>Fast pris innan vi börjar</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=Offertf%C3%B6rfr%C3%A5gan%3A%20St%C3%B6rre%20projekt">Begär offert</a>
+        </div>
+
+      </div>
+      <div class="process">
+        <div class="pstep"><div class="n">01</div><h3>Skicka låten</h3><p>Mejla en demo eller dina spår och berätta vad du vill uppnå.</p></div>
+        <div class="pstep"><div class="n">02</div><h3>Vi bekräftar</h3><p>Du får en tidsplan och ett fast pris. Halva betalas i förskott.</p></div>
+        <div class="pstep"><div class="n">03</div><h3>Vi jobbar</h3><p>Du får en första version och ger feedback.</p></div>
+        <div class="pstep"><div class="n">04</div><h3>Leverans</h3><p>Färdiga filer, redo att laddas upp hos din distributör.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bild" class="tab-panel" role="tabpanel">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Kreativt bildspråk</p>
+        <h2>Få releasen att <span class="gold">synas</span></h2>
+        <p class="lead">Omslag, rörliga bilder och grafik som hänger ihop – så att din release känns igen i flödet.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Omslag</h3>
+          <p class="for">Ett omslag som sticker ut bland tusentals andra.</p>
+          <div class="price">995 kr <small>/ release</small></div>
+          <ul><li>Design och typografi i 3000 × 3000 px</li><li>Utgår från din musik, dina tre ord och dina referenser</li><li>Två revideringar</li><li>Anpassad version för Instagram</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Omslag">Beställ omslag</a>
+        </div>
+
+        <div class="plan featured"><span class="tag">Bäst värde</span>
+          <h3>Releasepaket</h3>
+          <p class="for">Allt du behöver för att lansera en singel.</p>
+          <div class="price">1 995 kr <small>/ release</small></div>
+          <ul><li>Omslag enligt ovan</li><li>Spotify Canvas – en loop på 3–8 sekunder</li><li>Sex mallar för inlägg och stories: pre-save, release, tack</li><li>Ett visualizer-klipp för TikTok och Reels</li></ul>
+          <a class="btn btn-primary" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Releasepaket">Beställ releasepaket</a>
+        </div>
+
+        <div class="plan">
+          <h3>Canvas &amp; klipp</h3>
+          <p class="for">Du har redan ett omslag men vill ha rörelse.</p>
+          <div class="price">495 kr <small>/ release</small></div>
+          <ul><li>Spotify Canvas – en sömlös loop på 3–8 sekunder</li><li>Ditt omslag i rörelse: ljus, korn, rök eller partiklar</li><li>Ett visualizer-klipp för TikTok och Reels</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Canvas%20och%20klipp">Beställ Canvas</a>
+        </div>
+
+      </div>
+      <div class="ai-box">
+        <h3>Så använder vi <span class="gold">AI</span></h3>
+        <div>
+          <p>Vi är öppna med att vi använder AI som ett av flera verktyg, till exempel för att ta fram texturer och bakgrunder. Idén, kompositionen, typografin och den slutliga bilden gör vi själva, och vi bygger gärna på dina egna foton.</p>
+          <p>Vi berättar alltid vilka delar som är AI-genererade, så att du vet exakt vad du får.</p>
+        </div>
+      </div>
+      <div class="combo">
+        <div>
+          <p class="eyebrow">Hela releasen</p>
+          <h3>Mix &amp; master + Releasepaket</h3>
+          <p>Ljud och bild för en singel, från oss i ett paket. Du sparar 495 kr jämfört med att köpa dem var för sig.</p>
+        </div>
+        <div>
+          <div class="price">3 495 kr <small>/ singel</small></div>
+          <a class="btn btn-primary" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Hela%20releasen">Boka hela releasen</a>
+        </div>
+      </div>
+      <p class="vat">Alla priser inklusive moms. Projekt bekräftas skriftligt innan vi börjar, se våra <a href="terms.html" class="gold">villkor</a>.</p>
+    </div>
+  </section>
+
+  <section id="klubbar" class="packages tab-panel" role="tabpanel">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Prenumerationer</p>
+        <h2>För dig som <span class="gold">släpper ofta</span></h2>
+        <p class="lead">Betala per månad i stället för per låt. Du får förtur, bättre pris och slipper räkna på varje ändring.</p>
+      </div>
+      <div class="plans two">
+        <div class="plan featured">
+          <span class="tag">Mest värde</span>
+          <h3>Releaseklubben</h3>
+          <p class="for">En färdig låt i månaden – mixad, mastrad och redo att släppas.</p>
+          <div class="price">1 795 kr <small>/ mån</small></div>
+          <ul><li>En mix &amp; master i månaden (värde 1 995 kr)</li><li>Oanvänd mix sparas en månad framåt</li><li>Förtur i kön</li><li>20 % rabatt på alla bildpaket</li></ul>
+          <a class="btn btn-primary" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Releaseklubben">Gå med i Releaseklubben</a>
+        </div>
+        <div class="plan">
+          <h3>Contentklubben</h3>
+          <p class="for">Nytt material till TikTok och Reels varje månad – inte bara vid release.</p>
+          <div class="price">995 kr <small>/ mån</small></div>
+          <ul><li>8 klipp i månaden: visualizers, textklipp och teasers</li><li>Gjorda av ditt omslag, dina låtar och dina mobilklipp</li><li>En Spotify Canvas när du släpper ny musik</li><li>Plan för när och var klippen ska postas</li></ul>
+          <a class="btn btn-outline" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Contentklubben">Gå med i Contentklubben</a>
+        </div>
+      </div>
+      <p class="vat">Prenumerationerna har tre månaders bindningstid och förnyas sedan månadsvis tills du avslutar. Läs mer i våra <a href="terms.html" class="gold">villkor</a>.</p>
+    </div>
+  </section>
+
+  <section class="reality">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Frågor</p>
+        <h2>Bra att <span class="gold">veta</span></h2>
+      </div>
+      <div class="faq">
+        <details><summary>Vem äger musiken?</summary><p>Du. Vi tar inga procent av dina royalties och gör inga anspråk på dina låtar. Vid produktion kommer vi överens skriftligt innan vi börjar om eventuell medverkan som upphovsperson.</p></details>
+        <details><summary>Vad behöver jag skicka för en mix?</summary><p>Alla spår som separata WAV-filer från samma startpunkt, plus en referenslåt som låter som du vill att din låt ska låta.</p></details>
+        <details><summary>Vad händer om jag vill ha fler ändringar?</summary><p>Revideringarna i paketet räcker i nästan alla fall. Behöver du fler kommer vi överens om ett pris innan vi gör dem.</p></details>
+        <details><summary>Får jag använda omslaget överallt?</summary><p>Ja, för din release: streaming, sociala medier, affischer och merch. Mer om rättigheter, bland annat för AI-genererade delar, står i det skriftliga projektbeskedet.</p></details>
+        <details><summary>Är jag med i Community eller Partner?</summary><p>Då får du 10 % rabatt på alla paket på den här sidan.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" style="padding-top:100px">
+    <div class="container">
+      <div class="cta-box">
+        <p class="eyebrow">Din musik. Dina rättigheter. Din tillväxt.</p>
+        <h2>Har du en låt på <span class="gold">gång</span>?</h2>
+        <div class="divider"></div>
+        <p class="lead">Skicka en demo och berätta vad du drömmer om. Du får svar inom två arbetsdagar.</p>
+        <a class="btn btn-primary" href="mailto:zebastian@luceracollective.com?subject=F%C3%B6rfr%C3%A5gan%3A%20Min%20l%C3%A5t">Skicka din demo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="index.html" class="logo" style="font-size:1.3rem">LUCERA</a>
+      <span>© <span id="year"></span> Lucera Collective. Alla rättigheter förbehållna.</span>
+      <div class="footer-links"><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    (function () {
+      const body = document.body, btn = document.querySelector('.burger');
+      const setOpen = (open) => { body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Stäng menyn' : 'Öppna menyn'); };
+      btn.addEventListener('click', () => setOpen(!body.classList.contains('menu-open')));
+      document.querySelector('.menu-overlay').addEventListener('click', () => setOpen(false));
+      document.querySelectorAll('.drawer a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+      const bar = document.getElementById('nav');
+      const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onScroll); onScroll();
+    })();
+  </script>
+  <script>
+    (function () {
+      const ids = ['ljud', 'bild', 'klubbar'];
+      const panels = ids.map(id => document.getElementById(id));
+      const btns = document.querySelectorAll('.tab-btn');
+      function show(id, scroll) {
+        if (!ids.includes(id)) id = 'ljud';
+        panels.forEach(p => p.hidden = p.id !== id);
+        btns.forEach(b => {
+          const on = b.dataset.tab === id;
+          b.classList.toggle('btn-primary', on);
+          b.classList.toggle('btn-outline', !on);
+          b.setAttribute('aria-selected', on);
+        });
+        if (scroll) window.scrollTo({ top: document.querySelector('.tabs').getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      }
+      btns.forEach(b => b.addEventListener('click', e => {
+        e.preventDefault();
+        try { history.replaceState(null, '', '#' + b.dataset.tab); } catch (err) { /* förhandsvisning utan egen adress */ }
+        show(b.dataset.tab, true);
+      }));
+      window.addEventListener('hashchange', () => show(location.hash.slice(1), true));
+      let start = '';
+      try { start = location.hash.slice(1); } catch (err) {}
+      show(start, false);
+      if (ids.includes(start)) setTimeout(() => window.scrollTo({ top: document.querySelector('.tabs').getBoundingClientRect().top + window.scrollY - 100 }), 50);
+    })();
+  </script>
+</body>
+</html>
